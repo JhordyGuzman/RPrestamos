@@ -41,7 +41,7 @@ namespace RPrestamos.UI.Registros
         private void BuscarButton_Click(object sender, RoutedEventArgs e){
             var persona = PersonasBLL.Buscar(Utilidades.ToInt(PersonaIdTextBox.Text));
 
-            if (persona != null)
+            if (persona == null)
                 this.personas = persona;
             else    
                 this.personas = new Personas();

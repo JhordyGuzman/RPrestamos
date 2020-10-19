@@ -18,5 +18,7 @@ namespace RPrestamos.Entidades
 
         public Decimal Balance { get; set; }
 
+        public int Mora { get; set; } = 0;
+
     }
 }
