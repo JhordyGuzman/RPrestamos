@@ -9,10 +9,10 @@
     <Grid>
         <StackPanel>
 
-         <!-- <Label Content = "MoraId" FontWeight="Bold" Width="171" Margin="-450,50,0,0"/>
-            <TextBox x:Name = "MoraIdTextBox" Text ="{Binding MoraId}" Width="50" Height="25" Margin="-450,-40,0,0"/> -->
-         <Label Content="Id" FontWeight="Bold" Width="171" Margin="-450,50,0,0"/>
-         <TextBox x:Name="IdTextBox" Text="{Binding Detalle.IdDetalle}" Height="20"/>
+         <Label Content = "MoraId" FontWeight="Bold" Width="171" Margin="-450,50,0,0"/>
+            <TextBox x:Name = "MoraIdTextBox" Text ="{Binding MoraId}" Width="50" Height="25" Margin="-450,-60,0,0"/> 
+         <!-- <Label Content="Id" FontWeight="Bold" Width="171" Margin="-450,50,0,0"/>
+         <TextBox x:Name="IdTextBox" Text="{Binding MorasDetalle.Id}"  Width="50" Height="25" Margin="-450,-40,0,0" /> -->
            
 
                 <!--Fecha-->
@@ -34,7 +34,7 @@
 
 
                             <Label Content = "PrestamoId" FontWeight="Bold" FontSize="15px" Margin="5,30,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal"/>
-                            <ComboBox x:Name = "PrestamoIdComboBox" Text ="{Binding Detalle.PrestamoId}" Width="80" Height="25" Margin="-210,-30,0,0"/>
+                            <ComboBox x:Name = "PrestamoIdComboBox" Text ="{Binding MorasDetalle.PrestamoId}" Width="80" Height="25" Margin="-210,-30,0,0"/>
 
                             <!--Valor-->
                             <Label Content = "ValorMora" FontWeight="Bold" FontSize="15px" Margin="230,-20,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal"/>
@@ -58,7 +58,7 @@
                                 </Button>
                             </StackPanel>
 
-                            <DataGrid x:Name="DetalleDataGrid" Height="100" AutoGenerateColumns="False" ItemsSource="{Binding Detalle}" Margin="5,10,0,0">
+                            <DataGrid x:Name="DetalleDataGrid" Height="100" AutoGenerateColumns="False" ItemsSource="{Binding MorasDetalle}" Margin="5,10,0,0">
                                 <DataGrid.Columns>
                                     <!--<DataGridTextColumn Header="Id" Binding="{Binding IdDetalle}"/>-->
                                     <DataGridTextColumn Header="PrestamoId" Binding="{Binding PrestamoId}"/>

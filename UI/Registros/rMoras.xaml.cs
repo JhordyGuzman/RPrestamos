@@ -39,7 +39,7 @@ namespace RPrestamos.UI.Registros
         private bool Validar(){
             bool esValido = true;
 
-            if(IdTextBox.Text.Length ==0){
+            if(MoraIdTextBox.Text.Length ==0){
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida" , "Fallo",  MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -55,7 +55,7 @@ namespace RPrestamos.UI.Registros
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e){
-              Moras moras = MorasBLL.Buscar(Utilidades.ToInt(IdTextBox.Text));
+              Moras moras = MorasBLL.Buscar(Utilidades.ToInt(MoraIdTextBox.Text));
 
             if(moras != null){
                     this.moras = moras;
@@ -107,7 +107,7 @@ namespace RPrestamos.UI.Registros
             }
         }
         private void EliminarButton_Click(object sender, RoutedEventArgs e){
-            if(PrestamosBLL.Eliminar(Utilidades.ToInt(IdTextBox.Text))){
+            if(PrestamosBLL.Eliminar(Utilidades.ToInt(MoraIdTextBox.Text))){
 
                 Limpiar();
                 MessageBox.Show("Registro eliminado!" , "Exito" , MessageBoxButton.OK, MessageBoxImage.Information);
@@ -128,7 +128,7 @@ namespace RPrestamos.UI.Registros
             moras.MorasDetalle.Add(filaDetalle);
             Cargar();
 
-            IdTextBox.Clear();
+            MoraIdTextBox.Clear();
             ValorTextBox.Clear();
         }
 
