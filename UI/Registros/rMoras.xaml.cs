@@ -139,7 +139,7 @@ namespace RPrestamos.UI.Registros
         //     }
         //}
         private void EliminarButton_Click(object sender, RoutedEventArgs e){
-            if(PrestamosBLL.Eliminar(Utilidades.ToInt(MoraIdTextBox.Text))){
+            if(MorasBLL.Eliminar(Utilidades.ToInt(MoraIdTextBox.Text))){
 
                 Limpiar();
                 MessageBox.Show("Registro eliminado!" , "Exito" , MessageBoxButton.OK, MessageBoxImage.Information);

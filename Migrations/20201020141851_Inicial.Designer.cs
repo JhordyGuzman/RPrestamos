@@ -9,7 +9,7 @@ using RPrestamos.DAL;
 namespace RPrestamos.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201020052842_Inicial")]
+    [Migration("20201020141851_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
