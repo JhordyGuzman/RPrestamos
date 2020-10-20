@@ -21,7 +21,10 @@ namespace RPrestamos.BLL
                 return Modificar(persona);
         }
 
-
+        internal static object GetList()
+        {
+            throw new NotImplementedException();
+        }
 
         private static bool Insertar(Personas personas)
         {

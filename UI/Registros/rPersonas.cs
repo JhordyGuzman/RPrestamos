@@ -1,6 +1,7 @@
 using System.Windows;
 using RPrestamos.Entidades;
 using RPrestamos.BLL;
+using System;
 
 namespace RPrestamos.UI.Registros
 {
@@ -12,11 +13,6 @@ namespace RPrestamos.UI.Registros
         {
             InitializeComponent();
             this.DataContext = personas;
-
-
-            // PersonaIdComboBox.ItemsSource = PersonasBLL.GetPersonas();
-            // PersonaIdComboBox.SelectedValuePath = "PersonaId";
-            // PersonaIdComboBox.DisplayMemberPath = "Nombres";
 
         }
 
@@ -30,7 +26,7 @@ namespace RPrestamos.UI.Registros
         private bool Validar(){
             bool esValido = true;
 
-            if (NombreTextBox.Text.Length == 0){   
+            if (NombresTextBox.Text.Length == 0){   
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida","Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -39,16 +35,17 @@ namespace RPrestamos.UI.Registros
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e){
-            var persona = PersonasBLL.Buscar(Utilidades.ToInt(PersonaIdTextBox.Text));
-
-            if (persona == null)
+            var persona = PersonasBLL.Buscar(Convert.ToInt32(PersonaIdTextBox.Text));
+            if (persona != null)
                 this.personas = persona;
-            else    
-                this.personas = new Personas();
-
-                this.DataContext = this.personas;
+            else
+            {
+                 this.personas = new Personas();
+                 MessageBox.Show("No se ha Encontrado", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            this.DataContext = this.personas;
         }
-
         private void NuevoButton_Click(object sender, RoutedEventArgs e){
             Limpiar();
         }

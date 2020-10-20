@@ -15,10 +15,10 @@
     
     
      <Label Content= "Nombre" FontWeight= "Bold"  FontSize= "15" Margin="2,30,1,1"/>
-     <TextBox x:Name= "NombreTextBox" Text="{Binding Nombre}" Width= "210" Height= "30" Margin= "20,-30,1,1"/>
+     <TextBox x:Name= "NombresTextBox" Text="{Binding Nombres}" Width= "210" Height= "30" Margin= "20,-30,1,1"/>
 
      <Label Content= "Balance" FontWeight= "Bold"  FontSize= "15" Margin="2,10,1,1"/>
-     <TextBox x:Name= "BalanceTextBox" Text="{Binding Telefono}" Width= "210" Height= "30" Margin= "20,-25,1,1" />
+     <TextBox x:Name= "BalanceTextBox" Text="{Binding Telefono}" IsReadOnly= "true" Width= "210" Height= "30" Margin= "20,-25,1,1" />
 
      <Label Content= "Fecha" FontWeight= "Bold"  FontSize= "15" Margin="2,5,1,1"/>
      <DatePicker x:Name= "FechaDatePicker" Text="{Binding Fecha}" Width= "210" Height= "30" Margin= "20,-25,1,1"/>

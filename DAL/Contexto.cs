@@ -11,7 +11,7 @@ namespace RPrestamos.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
+           
 
             optionsBuilder.UseSqlite(@"Data Source = Data/DPrestamos.db");
         }

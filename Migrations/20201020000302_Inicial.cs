@@ -46,7 +46,8 @@ namespace RPrestamos.Migrations
                     PersonaId = table.Column<int>(nullable: false),
                     Concepto = table.Column<string>(nullable: true),
                     Monto = table.Column<decimal>(nullable: false),
-                    Balance = table.Column<decimal>(nullable: false)
+                    Balance = table.Column<decimal>(nullable: false),
+                    Mora = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -93,6 +93,9 @@ namespace RPrestamos.Migrations
                     b.Property<decimal>("Monto")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Mora")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("PersonaId")
                         .HasColumnType("INTEGER");
 

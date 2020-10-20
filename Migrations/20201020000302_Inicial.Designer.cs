@@ -9,7 +9,7 @@ using RPrestamos.DAL;
 namespace RPrestamos.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201017215510_Inicial")]
+    [Migration("20201020000302_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,6 +94,9 @@ namespace RPrestamos.Migrations
 
                     b.Property<decimal>("Monto")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Mora")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("PersonaId")
                         .HasColumnType("INTEGER");
