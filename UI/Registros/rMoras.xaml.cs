@@ -17,9 +17,10 @@ namespace RPrestamos.UI.Registros
         InitializeComponent();
             this.DataContext = moras;
 
-            PrestamoIdComboBox.ItemsSource= PersonasBLL.GetList(p =>true);
-            PrestamoIdComboBox.SelectedValuePath= "PersonaId";
-            PrestamoIdComboBox.DisplayMemberPath="Nombres";
+            PrestamoIdComboBox.ItemsSource= PrestamosBLL.GetList(p =>true);
+            PrestamoIdComboBox.SelectedValuePath= "PrestamoId";
+            PrestamoIdComboBox.DisplayMemberPath="PrestamoId";
+
 
         }
 
@@ -38,7 +39,7 @@ namespace RPrestamos.UI.Registros
         private bool Validar(){
             bool esValido = true;
 
-            if(ValorTextBox.Text.Length ==0){
+            if(IdTextBox.Text.Length ==0){
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida" , "Fallo",  MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -54,18 +55,18 @@ namespace RPrestamos.UI.Registros
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e){
-              var moras = MorasBLL.Buscar(Utilidades.ToInt(MoraIdTextBox.Text));
+              Moras moras = MorasBLL.Buscar(Utilidades.ToInt(IdTextBox.Text));
 
             if(moras != null){
                     this.moras = moras;
                     Cargar();   
             }
             else{
-                    this.moras = new Moras();
+                    // this.moras = new Moras();
               Limpiar();
               MessageBox.Show("Mora no existe en la base de datos", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            this.DataContext = this.moras;
+            // this.DataContext = this.moras;
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e){
@@ -74,11 +75,13 @@ namespace RPrestamos.UI.Registros
         }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e){
-            
-            if(!Validar()){
-                return;
-            }
-                var paso = MorasBLL.Guardar(moras);
+            bool paso = false;
+
+
+            // if(!Validar()){
+            //     return;
+            // }
+                //  paso = MorasBLL.Guardar(moras);
 
             if (moras.MoraId == 0)
             {
@@ -104,7 +107,7 @@ namespace RPrestamos.UI.Registros
             }
         }
         private void EliminarButton_Click(object sender, RoutedEventArgs e){
-            if(PrestamosBLL.Eliminar(Utilidades.ToInt(MoraIdTextBox.Text))){
+            if(PrestamosBLL.Eliminar(Utilidades.ToInt(IdTextBox.Text))){
 
                 Limpiar();
                 MessageBox.Show("Registro eliminado!" , "Exito" , MessageBoxButton.OK, MessageBoxImage.Information);
@@ -116,13 +119,16 @@ namespace RPrestamos.UI.Registros
 
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
-            var filaDetalle = new MorasDetalle( moras.MoraId, Convert.ToInt32(PrestamoIdComboBox.Text),
-              Convert.ToInt32(ValorTextBox.Text));
+            var filaDetalle = new MorasDetalle{
+                PrestamoId = Convert.ToInt32 (PrestamoIdComboBox.SelectedValue),
+               Valor = Convert.ToSingle(ValorTextBox.Text)
+            };
 
+            
             moras.MorasDetalle.Add(filaDetalle);
             Cargar();
 
-            MoraIdTextBox.Clear();
+            IdTextBox.Clear();
             ValorTextBox.Clear();
         }
 

@@ -12,18 +12,11 @@ namespace RPrestamos.Entidades
 
         public int PrestamoId { get; set; }
 
-        public Decimal Valor { get; set; }
+        public float Valor { get; set; }
 
         
 
-        public MorasDetalle( int moraId, int prestamoId, Decimal valor)
-        {
-            Id =0;
-            MoraId = moraId;
-            PrestamoId = prestamoId;
-            Valor = valor;
-            
-        }
+        
     }
 
 }

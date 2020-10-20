@@ -12,7 +12,7 @@ namespace RPrestamos.Entidades
 
         public int PersonaId { get; set; }
 
-        public String Concepto { get; set; }
+        public string Concepto { get; set; }
 
         public Decimal Monto { get; set; }
 

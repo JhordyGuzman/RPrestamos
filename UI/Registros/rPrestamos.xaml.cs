@@ -14,10 +14,11 @@ namespace RPrestamos.UI.Registros
             PersonaIdComboBox.ItemsSource= PersonasBLL.GetList(p =>true);
             PersonaIdComboBox.SelectedValuePath= "PersonaId";
             PersonaIdComboBox.DisplayMemberPath="Nombres";
+            prestamos.Monto += prestamos.Balance;
             this.DataContext = prestamos;
-            Limpiar();
             
-          Personas personas = new Personas();
+            
+        //   Personas personas = new Personas();
           
 
         }
