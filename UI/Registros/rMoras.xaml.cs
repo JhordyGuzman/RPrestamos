@@ -149,18 +149,28 @@ namespace RPrestamos.UI.Registros
             }
         }
 
-        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
-        {
-            var filaDetalle = new MorasDetalle{
-                PrestamoId = Convert.ToInt32 (PrestamoIdComboBox.SelectedValue.ToString()),
-               Valor = Convert.ToDecimal(ValorTextBox.Text)
-            };
+        // private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
+        // {
+        //     var filaDetalle = new MorasDetalle{
+        //         PrestamoId = Convert.ToInt32 (PrestamoIdComboBox.SelectedValue.ToString()),
+        //        Valor = Convert.ToDecimal(ValorTextBox.Text)
+        //     };
 
             
-            moras.MorasDetalle.Add(filaDetalle);
+        //     moras.MorasDetalle.Add(filaDetalle);
+        //     Cargar();
+
+        //     MoraIdTextBox.Clear();
+        //     ValorTextBox.Clear();
+        // }
+
+        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            moras.MorasDetalle.Add( new MorasDetalle(moras.MoraId, PrestamoIdComboBox.SelectedIndex+1,Convert.ToDecimal(ValorTextBox.Text)));
+
             Cargar();
 
-            MoraIdTextBox.Clear();
             ValorTextBox.Clear();
         }
 

@@ -14,8 +14,15 @@ namespace RPrestamos.Entidades
 
         public Decimal Valor { get; set; }
 
-        
 
+       
+
+        public MorasDetalle(int moraId, int prestamoId, Decimal valor)
+        {
+            MoraId = moraId;
+            PrestamoId = prestamoId;
+            Valor = valor;
+        }
         
     }
 
