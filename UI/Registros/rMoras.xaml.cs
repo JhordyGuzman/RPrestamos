@@ -122,7 +122,7 @@ namespace RPrestamos.UI.Registros
             moras.MorasDetalle.Add(filaDetalle);
             Cargar();
 
-            IdTextBox.Clear();
+            MoraIdTextBox.Clear();
             ValorTextBox.Clear();
         }
 

@@ -9,69 +9,69 @@
     <Grid>
         <StackPanel>
 
-         <StackPanel Margin= "-120,90,-1,-1"  VerticalAlignment="Center" HorizontalAlignment="Center">
-            
-            <!--Fecha-->
-            <Label Content = "Fecha" FontWeight="Bold"  Margin="120,-90,1,1" FontStyle="Normal"/>
-            <DatePicker x:Name = "FechaDatePicker" SelectedDate ="{Binding Fecha}" Width="190" Height="30" Margin="40,-90,0,0"/>
-            
-            <!--MoraId-->
-            <Label Content = "Mora Id" FontWeight="Bold"  Margin="120,-125,1,1"  FontStyle="Normal"/>
-            <TextBox x:Name = "MoraIdTextBox" Text ="{Binding MoraId}" Width="50" Height="25" Margin="10,50,0,0"/>
-            
-            <!--Boton Buscar-->
-            <Button x:Name ="BuscarButton" Margin="240,-225,0,0" Width = "120" Height = "40" Content="Buscar" Click="BuscarButton_Click"/>
-            <Image Source= "/Imagenes/Buscar.png" Width="30" Height= "30" Margin="160,-225,0,0"/>
+         <Label Content = "MoraId" FontWeight="Bold" Width="171" Margin="-450,50,0,0"/>
+            <TextBox x:Name = "MoraIdTextBox" Text ="{Binding MoraId}" Width="50" Height="25" Margin="-450,-40,0,0"/>
 
-            
-            
-            
-            <StackPanel Orientation="Vertical">
-                <GroupBox Header="Detalle Moras" Margin="2,5,0,0">
-                    <StackPanel>
-                        <Label Content="Id"/>
-                        <TextBox x:Name="IdTextBox" Text="{Binding Detalle.IdDetalle}" Height="20"/>
+           
 
-                      
-                       
-                        <Label Content = "PrestamoId" FontWeight="Bold" FontSize="15px" Margin="5,30,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal"/>
-                        <ComboBox x:Name = "PrestamoIdComboBox" SelectedValue ="{Binding PrestamoId}" Width="80" Height="25" Margin="-180,-20,0,0"/>
-                
-            <!--Valor-->
-             <Label Content = "Valor" FontWeight="Bold" FontSize="15px" Margin="230,-20,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal"/>
-                        <TextBox x:Name = "ValorTextBox" Text ="{Binding Valor}" Width="100" Height="25" Margin="190,-25,0,0"/>
-            
-                       
+                <!--Fecha-->
+                <Label Content = "Fecha" FontWeight="Bold"  Margin="10,20,1,1" />
+                <DatePicker x:Name = "FechaDatePicker" SelectedDate ="{Binding Fecha}" Width="190" Height="30" Margin="-310,-30,0,0"/>
 
-                        
-                        <StackPanel Orientation="Horizontal">                        
-                            <Button x:Name="AgregarFilaButton" Margin="20,0,0,0" Click="AgregarFilaButton_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Resources/Mas.png" Height="25"/>
-                                    <Label Content="Agregar fila"/>
-                                </StackPanel>
-                            </Button>
-                            <Button x:Name="RemoverFilaButton" Margin="20,0,0,0" Click="RemoverFilaButton_Click">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Resources/Eliminar.png" Height="25"/>
-                                    <Label Content="Eliminar fila"/>
-                                </StackPanel>
-                            </Button>
+                <!--Boton Buscar-->
+                <Button x:Name ="BuscarButton" Margin="-200,-150,0,0" Width = "120" Height = "40" Content="Buscar" Click="BuscarButton_Click"/>
+                <Image Source= "/Imagenes/Buscar.png" Width="30" Height= "30" Margin="-280,-150,0,0"/>
+
+            <StackPanel Margin= "-120,50,-1,-1" HorizontalAlignment="Center" Height="304">
+
+
+                <StackPanel Orientation="Vertical">
+                    <GroupBox Header="Detalle Moras" Margin="2,-20,0,0">
+                        <StackPanel>
+                            <!--<Label Content="Id"/>
+                            <TextBox x:Name="IdTextBox" Text="{Binding Detalle.IdDetalle}" Height="20"/>-->
+
+
+
+                            <Label Content = "Prestamo" FontWeight="Bold" FontSize="15px" Margin="5,30,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal"/>
+                            <ComboBox x:Name = "PrestamoIdComboBox" SelectedValue ="{Binding PrestamoId}" Width="80" Height="25" Margin="-210,-30,0,0"/>
+
+                            <!--Valor-->
+                            <Label Content = "ValorMora" FontWeight="Bold" FontSize="15px" Margin="230,-20,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal"/>
+                            <TextBox x:Name = "ValorTextBox" Text ="{Binding Valor}" Width="100" Height="25" Margin="250,-25,0,0"/>
+
+
+
+
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="AgregarFilaButton" Margin="20,0,0,0" Click="AgregarFilaButton_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <!--<Image Source="/Resources/Mas.png" Height="25"/>-->
+                                        <Label Content="   Agregar"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="RemoverFilaButton" Margin="20,0,0,0" Click="RemoverFilaButton_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <!--<Image Source="/Resources/Eliminar.png" Height="25"/>-->
+                                        <Label Content="      Eliminar"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+                            <DataGrid x:Name="DetalleDataGrid" Height="100" AutoGenerateColumns="False" ItemsSource="{Binding Detalle}" Margin="5,10,0,0">
+                                <DataGrid.Columns>
+                                    <!--<DataGridTextColumn Header="Id" Binding="{Binding IdDetalle}"/>-->
+                                    <DataGridTextColumn Header="PrestamoId" Binding="{Binding PrestamoId}"/>
+                                    <!--<DataGridTextColumn Header="MoraId" Binding="{Binding MoraId}"/>-->
+                                    <DataGridTextColumn Header="FechaMora" Binding="{Binding FechaMoraDetalle}"/>
+                                    <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
                         </StackPanel>
-
-                        <DataGrid x:Name="DetalleDataGrid" Height="100" AutoGenerateColumns="False" ItemsSource="{Binding Detalle}" Margin="5,10,0,0">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Id" Binding="{Binding IdDetalle}"/>
-                                <DataGridTextColumn Header="PrestamoId" Binding="{Binding PrestamoId}"/>
-                                <DataGridTextColumn Header="MoraId" Binding="{Binding MoraId}"/>
-                                <DataGridTextColumn Header="FechaMora" Binding="{Binding FechaMoraDetalle}"/>
-                                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-
-                    </StackPanel>
-                </GroupBox>
+                    </GroupBox>
             </StackPanel>
+                      
                       
             <!-- Boton Nuevo-->
             <Button x:Name ="NuevoButton" Margin="-120,20,0,0" Width = "100" Height = "40" Content="        Nuevo"  Click="NuevoButton_Click"/>
