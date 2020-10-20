@@ -9,7 +9,7 @@ using RPrestamos.DAL;
 namespace RPrestamos.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201020000302_Inicial")]
+    [Migration("20201020033746_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,8 +27,8 @@ namespace RPrestamos.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Total")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("MoraId");
 

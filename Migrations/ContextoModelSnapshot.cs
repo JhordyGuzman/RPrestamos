@@ -25,8 +25,8 @@ namespace RPrestamos.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Total")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("MoraId");
 

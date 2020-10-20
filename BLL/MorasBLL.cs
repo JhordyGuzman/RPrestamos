@@ -54,7 +54,7 @@ namespace RPrestamos.BLL
             try
             {
 
-                contexto.Database.ExecuteSqlRaw($"Eliminar de MorasDetalle donde MoraId={moras.MoraId}");
+                contexto.Database.ExecuteSqlRaw($"Delete FROM MorasDetalle Where MoraId={moras.MoraId}");
 
                 foreach(var item in moras.MorasDetalle)
                 {

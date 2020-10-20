@@ -73,15 +73,10 @@ namespace RPrestamos.UI.Registros
 
             Limpiar();
         }
-
-        private void GuardarButton_Click(object sender, RoutedEventArgs e){
+        
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        {
             bool paso = false;
-
-
-            // if(!Validar()){
-            //     return;
-            // }
-                //  paso = MorasBLL.Guardar(moras);
 
             if (moras.MoraId == 0)
             {
@@ -95,17 +90,54 @@ namespace RPrestamos.UI.Registros
                 }
                 else
                 {
-                    MessageBox.Show("No existe en la base de datos", "Error");
-                }
-                if(paso){
-                Limpiar();
-                MessageBox.Show("Transaccion exitosa!" , "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else{
-                MessageBox.Show("Transaccion Fallida", "Fallo",  MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("No existe en la base de datos", "ERROR");
                 }
             }
+
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Guardado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+                MessageBox.Show("Fallo al guardar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        // private void GuardarButton_Click(object sender, RoutedEventArgs e){
+        //     bool paso = false;
+
+
+        //     // if(!Validar()){
+        //     //     return;
+        //     // }
+        //         //  paso = MorasBLL.Guardar(moras);
+
+        //     if (moras.MoraId == 0)
+        //     {
+        //         paso = MorasBLL.Guardar(moras);
+        //     }
+        //     else
+        //     {
+        //         if (ExisteEnLaBaseDeDatos())
+        //         {
+        //             paso = MorasBLL.Guardar(moras);
+
+                   
+        //         }
+        //         else
+        //         {
+        //             MessageBox.Show("No existe en la base de datos", "Error");
+        //         }
+                
+        //         if(paso){
+        //         Limpiar();
+        //         MessageBox.Show("Transaccion exitosa!" , "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+        //         }
+        //         else{
+        //         MessageBox.Show("Transaccion Fallida", "Fallo",  MessageBoxButton.OK, MessageBoxImage.Error);
+        //         }
+        //     }
+        //}
         private void EliminarButton_Click(object sender, RoutedEventArgs e){
             if(PrestamosBLL.Eliminar(Utilidades.ToInt(MoraIdTextBox.Text))){
 
@@ -120,8 +152,8 @@ namespace RPrestamos.UI.Registros
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
             var filaDetalle = new MorasDetalle{
-                PrestamoId = Convert.ToInt32 (PrestamoIdComboBox.SelectedValue),
-               Valor = Convert.ToSingle(ValorTextBox.Text)
+                PrestamoId = Convert.ToInt32 (PrestamoIdComboBox.SelectedValue.ToString()),
+               Valor = Convert.ToDecimal(ValorTextBox.Text)
             };
 
             

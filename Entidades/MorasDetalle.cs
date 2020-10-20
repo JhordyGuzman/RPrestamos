@@ -12,7 +12,7 @@ namespace RPrestamos.Entidades
 
         public int PrestamoId { get; set; }
 
-        public float Valor { get; set; }
+        public Decimal Valor { get; set; }
 
         
 

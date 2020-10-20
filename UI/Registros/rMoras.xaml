@@ -46,13 +46,13 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button x:Name="AgregarFilaButton" Margin="20,0,0,0" Click="AgregarFilaButton_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <!--<Image Source="/Resources/Mas.png" Height="25"/>-->
-                                        <Label Content="   Agregar"/>
+                                        <Image Source="/Imagenes/Agregar.png" Height="25"/>
+                                        <Label Content="      Agregar"/>
                                     </StackPanel>
                                 </Button>
                                 <Button x:Name="RemoverFilaButton" Margin="20,0,0,0" Click="RemoverFilaButton_Click">
                                     <StackPanel Orientation="Horizontal">
-                                        <!--<Image Source="/Resources/Eliminar.png" Height="25"/>-->
+                                        <Image Source="/Imagenes/Eliminar1.png" Height="25"/>
                                         <Label Content="      Eliminar"/>
                                     </StackPanel>
                                 </Button>
@@ -62,8 +62,8 @@
                                 <DataGrid.Columns>
                                     <!--<DataGridTextColumn Header="Id" Binding="{Binding IdDetalle}"/>-->
                                     <DataGridTextColumn Header="PrestamoId" Binding="{Binding PrestamoId}"/>
-                                    <!--<DataGridTextColumn Header="MoraId" Binding="{Binding MoraId}"/>-->
-                                    <DataGridTextColumn Header="FechaMora" Binding="{Binding FechaMoraDetalle}"/>
+                                    <DataGridTextColumn Header="MoraId" Binding="{Binding MoraId}"/>
+                                    <!-- <DataGridTextColumn Header="FechaMora" Binding="{Binding FechaMoraDetalle}"/> -->
                                     <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
                                 </DataGrid.Columns>
                             </DataGrid>

@@ -14,7 +14,7 @@ namespace RPrestamos.Migrations
                     MoraId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(nullable: false),
-                    Total = table.Column<float>(nullable: false)
+                    Total = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {

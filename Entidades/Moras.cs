@@ -12,7 +12,7 @@ namespace RPrestamos.Entidades
 
         public DateTime Fecha { get; set; } = DateTime.Now;
 
-        public float Total { get; set; }
+        public Decimal Total { get; set; }
 
         [ForeignKey("MoraId")]
         public virtual List<MorasDetalle> MorasDetalle { get; set; } = new List<MorasDetalle>();
