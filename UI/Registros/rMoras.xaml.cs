@@ -39,7 +39,7 @@ namespace RPrestamos.UI.Registros
         private bool Validar(){
             bool esValido = true;
 
-            if(MoraIdTextBox.Text.Length ==0){
+            if(moras.MoraId<0){
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida" , "Fallo",  MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -76,40 +76,45 @@ namespace RPrestamos.UI.Registros
         
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
-            bool paso = false;
+           bool paso = true;
 
             if (moras.MoraId == 0)
             {
                 paso = MorasBLL.Guardar(moras);
             }
-            else
-            {
-                if (ExisteEnLaBaseDeDatos())
+             else
+             {
+                 if (ExisteEnLaBaseDeDatos())
+                 {
+                     paso = MorasBLL.Guardar(moras);
+                 }
+                 else
                 {
-                    paso = MorasBLL.Guardar(moras);
+                     MessageBox.Show("No existe en la base de datos", "ERROR");
                 }
-                else
-                {
-                    MessageBox.Show("No existe en la base de datos", "ERROR");
-                }
-            }
+             }
 
+                // if(!Validar()){
+                //     return;
+                
+                // }
+
+                
             if (paso)
             {
-                Limpiar();
+                Limpiar();      
                 MessageBox.Show("Guardado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else
+            else{
                 MessageBox.Show("Fallo al guardar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         // private void GuardarButton_Click(object sender, RoutedEventArgs e){
         //     bool paso = false;
 
 
-        //     // if(!Validar()){
-        //     //     return;
-        //     // }
+        //    
         //         //  paso = MorasBLL.Guardar(moras);
 
         //     if (moras.MoraId == 0)
